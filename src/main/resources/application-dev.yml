@@ -1,0 +1,39 @@
+environment: development
+
+logging:
+  file:
+    name: logs/jose.log
+      # maximum log file size in bytes, before rotation
+    max-size: 10MB
+      # number of backup files to keep
+    max-history: 7
+    rolling:
+      enabled: true
+      file-name-pattern: se452-%d{yyyy-MM-dd}.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+  level:
+    root: INFO
+    org.springframework: ERROR
+    edu.group10.se452_g10: DEBUG
+
+spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto:  update
+
+  datasource:
+    url: jdbc:h2:mem:devDB
+  sql:
+    init:
+      platform: h2
+      mode: never
+
+
+
+
+

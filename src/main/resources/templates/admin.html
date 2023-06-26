@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Security Admin</title>
+</head>
+<body>
+Welcome <span th:text="${user}"></span>
+Your authority <span th:text="${role}"></span>
+<a href="logout">Logout</a>
+
+<div>
+    <button onclick="location.href='/student/list'">List Students</button>
+</div>
+<div>
+    <button onclick="location.href='/student/new'">Create a Student</button>
+</div>
+<div>
+    <button onclick="location.href='/teacher/list'">List Teachers</button>
+</div>
+<div>
+    <button onclick="location.href='/teacher/new'">Create a Teacher</button>
+</div>
+<div>
+    <button onclick="location.href='/course/list'">List Courses</button>
+</div>
+<div>
+    <button onclick="location.href='/course/new'">Create a Course</button>
+</div>
+</body>
+</html>

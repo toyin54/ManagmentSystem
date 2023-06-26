@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Student Management</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/teacher/list}">Teacher Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/course/list}">Course Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Update Student </h1>
+            <div class = "card-body">
+                <form th:action="@{'/student/edit/ '+ ${student.id}}" th:object = "${student}" method="POST">
+                    <div class ="form-group">
+                        <label> First Name </label>
+                        <input
+                                type = "text"
+                                name = "firstName"
+                                th:field = "*{firstName}"
+                                class = "form-control"
+                                placeholder="Enter Student First Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Last Name </label>
+                        <input
+                                type = "text"
+                                name = "lastName"
+                                th:field = "*{lastName}"
+                                class = "form-control"
+                                placeholder="Enter Student Last Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Username </label>
+                        <input
+                                type = "text"
+                                name = "username"
+                                th:field = "*{username}"
+                                class = "form-control"
+                                placeholder="Enter Student Email"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Email </label>
+                        <input
+                                type = "email"
+                                name = "email"
+                                th:field = "*{email}"
+                                class = "form-control"
+                                placeholder="Enter Student Email"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Password </label>
+                        <input
+                                type = "password"
+                                name = "password"
+                                th:field = "*{password}"
+                                class = "form-control"
+                                placeholder="Modify Student Password"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Gender </label>
+                        <input
+                                type = "text"
+                                name = "gender"
+                                th:field = "*{gender}"
+                                class = "form-control"
+                                placeholder="Enter Student Gender"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Date of Birth </label>
+                        <input
+                                type = "date"
+                                name = "dob"
+                                th:value = "${#dates.format(student.dob, 'yyyy-MM-dd')}"
+                                th:field = "*{dob}"
+                                class = "form-control"
+                                placeholder="Enter Student DOB"
+                        />
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

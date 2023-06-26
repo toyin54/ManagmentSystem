@@ -1,0 +1,60 @@
+<!-- linked with the controller-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Course Management</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Course Search</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<br>
+
+<div class ="container">
+    <div class = "row">
+        <h1> Search Result </h1>
+    </div>
+
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Department </th>
+            <th> Number </th>
+            <th> Name </th>
+            <th> Year</th>
+            <th> Quarter </th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "course: ${courses}">
+            <td th:text = "${course.dept}"></td>
+            <td th:text = "${course.num}"></td>
+            <td th:text = "${course.name}"></td>
+            <td th:text="${course.year}"></td>
+            <td th:text="${course.quarter}"></td>
+            <td>
+                <a th:href = "@{/course/enroll/{id}(id=${course.id})}"
+                   class = "btn btn-primary">Enroll</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>

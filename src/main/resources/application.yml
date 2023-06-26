@@ -1,0 +1,17 @@
+app:
+  doc:
+    version: 2023-Spring
+    title:   Education System
+    description: A simple education system for students to choose courses, teachers to teach and administrators to manage courses.
+    terms-of-service: http://swagger.io/terms/
+    license:  Apache 2.0
+    url: http://springdoc.org
+
+spring:
+  profiles:
+    active: dev
+    include: security-sql, security-register
+
+server:
+  tomcat:
+    relaxed-query-chars: ['[', ']']

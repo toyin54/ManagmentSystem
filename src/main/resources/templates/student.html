@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring Security Student</title>
+</head>
+<body>
+Welcome <span th:text="${user}"></span>
+Your authority<span th:text="${role}"></span>
+<a href="logout">Logout</a>
+</body>
+
+<div>
+  <button onclick="location.href='/course/search'">Search Course</button>
+</div>
+</html>
